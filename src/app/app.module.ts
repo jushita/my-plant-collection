@@ -6,10 +6,14 @@ import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
 import { PlantReducer } from './plant.reducer';
+import { PlantsViewComponent } from './plants-view/plants-view.component';
+import { PlantAddComponent } from './plant-add/plant-add.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    PlantsViewComponent,
+    PlantAddComponent
   ],
   imports: [
     BrowserModule,
