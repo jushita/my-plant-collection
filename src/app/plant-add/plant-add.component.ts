@@ -4,7 +4,7 @@ import { Plant } from '../models/plant';
 import { Store, select } from '@ngrx/store';
 import { PlantAdd } from '../plant.actions';
 @Component({
-  selector: 'app-plant-add',
+  selector: 'plant-add',
   templateUrl: './plant-add.component.html',
   styleUrls: ['./plant-add.component.css']
 })
