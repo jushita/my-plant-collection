@@ -1,1 +1,7 @@
-<p>plants-view works!</p>
+<h4>List of Plants</h4>
+
+<ul class="plants">
+    <li *ngFor="let plant of plants | async; let i=index">
+        <span>{{i+1}}.</span> {{ plant.name }}
+    </li>
+</ul>
