@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Plant } from '../models/plant';
 import { Store, select } from '@ngrx/store';
-import { PlantRemove } from '../plant.actions'
+import { removePlant } from '../plant.actions'
+import * as fromPlants from '../plant.reducer';
 
 @Component({
   selector: 'plants-view',
@@ -11,17 +12,17 @@ import { PlantRemove } from '../plant.actions'
 })
 export class PlantsViewComponent implements OnInit {
 
-  plants: Observable<Plant[]>;
+  plants: Plant[];
 
-  constructor(private store: Store<{ plants: Plant[]}> ) { 
-    this.plants = store.pipe(select('plants'));
+  constructor(private store: Store<fromPlants.State> ) { 
   }
 
   ngOnInit(): void {
+    this.store.select(fromPlants.selectPlants).subscribe(plants => this.plants = plants)
   }
 
-  removePlant(plantIndex) {
-    this.store.dispatch(new PlantRemove(plantIndex));
+  removePlant(plant: Plant) {
+    this.store.dispatch(removePlant({plant}));
   }
 
 }

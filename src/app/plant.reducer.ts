@@ -1,6 +1,8 @@
-import { PlantActionTypes, addPlant, removePlant } from './plant.actions';
-import { Action, createReducer, on } from '@ngrx/store';
+import { addPlant, removePlant } from './plant.actions';
+import { createReducer, on, createFeatureSelector, createSelector } from '@ngrx/store';
 import { Plant } from './models/plant';
+
+export const featureKey = 'plants';
 
 export interface State {
     plants: Plant[];
@@ -18,9 +20,19 @@ export const reducer = createReducer(
     on(removePlant, (state, {plant}) => {
         let plants = [...state.plants];
         const index = plants.findIndex((p) => {
-            return p.id === plant.id;
+            return p.name === plant.name;
         });
-        plants = plants.splice(index, 1);
+        plants.splice(index, 1);
         return {...state, plants};
     })
+)
+
+
+export const selectPlantState = createFeatureSelector(
+    featureKey
+) 
+
+export const selectPlants = createSelector(
+    selectPlantState,
+    (state: State) => state.plants 
 )

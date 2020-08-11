@@ -5,9 +5,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 
 import { StoreModule } from '@ngrx/store';
-import { PlantReducer } from './plant.reducer';
 import { PlantsViewComponent } from './plants-view/plants-view.component';
 import { PlantAddComponent } from './plant-add/plant-add.component';
+import * as fromPlants from './plant.reducer';
 
 @NgModule({
   declarations: [
@@ -18,7 +18,7 @@ import { PlantAddComponent } from './plant-add/plant-add.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({ plants: PlantReducer })
+    StoreModule.forRoot({ [fromPlants.featureKey]: fromPlants.reducer })
   ],
   providers: [],
   bootstrap: [AppComponent]
