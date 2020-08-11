@@ -1,8 +1,9 @@
-import { ActionEx, PlantActionTypes } from './plant.actions';
+import { PlantActionTypes, PlantActions } from './plant.actions';
+import { Action } from '@ngrx/store';
 
 export const initialState = [];
 
-export function PlantReducer(state = initialState, action: ActionEx) {
+export function PlantReducer(state = initialState, action: PlantActions) {
     switch (action.type) {
         case PlantActionTypes.Add:
             return [...state, action.payload];

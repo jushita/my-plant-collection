@@ -3,5 +3,6 @@
 <ul class="plants">
     <li *ngFor="let plant of plants | async; let i=index">
         <span>{{i+1}}.</span> {{ plant.name }}
+        <button style="float: right" (click)="removePlant(i)">Remove</button>
     </li>
 </ul>

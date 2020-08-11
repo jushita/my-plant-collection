@@ -1,27 +1,20 @@
-import { Action } from '@ngrx/store';
+import { Action , createAction, props} from '@ngrx/store';
+import { Plant } from './models/plant';
 
 export enum PlantActionTypes {
     Add = '[Plant Component] Add',
-    Remove = '[Plant Component] Remove'
+    Remove = '[Plant Component] Remove',
+    Update = '[Plant Component] Update',
+    Retrieve = '[Plant Component] Retrieve'  // [state] action
 }
 
+export const addPlant = createAction(
+    PlantActionTypes.Add,
+    props<{plant: Plant}>()
+)
 
-export class ActionEx implements Action {
-    readonly type;
-    payload: any;
-}
+export const removePlant = createAction(
+    PlantActionTypes.Remove,
+    props<{plant: Plant}>()
+)
 
-export class PlantAdd implements ActionEx {
-    readonly type = PlantActionTypes.Add;
-    constructor(public payload: any) {
-
-    }
-}
-
-export class CustomerRemove implements ActionEx {
-    readonly type = PlantActionTypes.Remove;
-
-    constructor(public payload: any) {
-
-    }
-}

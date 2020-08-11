@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Plant } from '../models/plant';
 import { Store, select } from '@ngrx/store';
+import { PlantRemove } from '../plant.actions'
 
 @Component({
   selector: 'plants-view',
@@ -17,6 +18,10 @@ export class PlantsViewComponent implements OnInit {
   }
 
   ngOnInit(): void {
+  }
+
+  removePlant(plantIndex) {
+    this.store.dispatch(new PlantRemove(plantIndex));
   }
 
 }
