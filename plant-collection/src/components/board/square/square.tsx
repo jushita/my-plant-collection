@@ -2,6 +2,7 @@ import React from 'react';
 
 interface SquareProps {
     value: string;
+    onClick: () => void;
 }
 
 interface State {
@@ -20,9 +21,9 @@ export default class Square extends React.Component<SquareProps, State> {
         return ( 
             <button 
                 className="square"    
-                onClick = { () => { this.setState({ value: 'X'}) }}>
+                onClick = { () => { this.props.onClick() }}>
             {this.state.value}
             </button>
-        )
+        );
     }
 } 
