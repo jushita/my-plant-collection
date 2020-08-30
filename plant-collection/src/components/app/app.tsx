@@ -1,5 +1,5 @@
 import React from 'react';
-import Board from '../board';
+import Game from '../game';
 
 
 
@@ -8,7 +8,7 @@ export default (
     function App() {
 
         return (
-            <Board value=''/>
+            <Game value=''/>
         )
     }
 )

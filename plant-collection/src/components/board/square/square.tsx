@@ -22,7 +22,7 @@ export default class Square extends React.Component<SquareProps, State> {
             <button 
                 className="square"    
                 onClick = { () => { this.props.onClick() }}>
-            {this.state.value}
+            {this.props.value}
             </button>
         );
     }

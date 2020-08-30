@@ -3,39 +3,27 @@ import Square from './square';
 
 
 interface BoardProps {
-    value: string;
+    squares: string;
+    onClick: any;
 }
 
 interface State {
     squares: string[];
+    xIsNext: boolean;
 }
 
 export default class Board extends React.Component<BoardProps, State> {
-    constructor(props: BoardProps) {
-        super(props);
-        this.state = {
-            squares: Array(9).fill(null)
-        }
-    }
-    handleClick(i: any) {
-        const squares = this.state.squares.slice();
-        squares[i] = 'X';
-        this.setState({ squares: squares})
-    }
-
+   
     renderSquare(i: any) {
         return <Square 
-            value={this.state.squares[i]}
-            onClick={() => this.handleClick(i)}
+            value={this.props.squares[i]}
+            onClick={() => this.props.onClick(i)}
             />
     }
 
     render() {
-        const status = 'Next player: X';
-    
         return (
           <div>
-            <div className="status">{status}</div>
             <div className="board-row">
               {this.renderSquare(0)}
               {this.renderSquare(1)}
@@ -54,5 +42,6 @@ export default class Board extends React.Component<BoardProps, State> {
           </div>
         );
       }
-}
 
+      
+}
