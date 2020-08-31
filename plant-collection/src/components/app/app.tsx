@@ -1,5 +1,5 @@
 import React from 'react';
-
+import Header from '../header';
 
 
 export default (
@@ -7,7 +7,7 @@ export default (
     function App() {
 
         return (
-            <div>My Plant App</div>
+            <Header></Header>
         )
     }
 )
