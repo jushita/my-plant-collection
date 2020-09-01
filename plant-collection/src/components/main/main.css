@@ -1,0 +1,14 @@
+.MuiContainer-maxWidthSm {
+    max-width: 1000px !important;
+}
+
+.main-container {
+    background-color: #fafafa !important;
+}
+
+.header-text {
+    margin-top: 20px !important;
+    border: 1px solid #ccc!important;
+    border-radius: 4px;
+    padding: 10px;
+}
