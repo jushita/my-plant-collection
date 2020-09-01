@@ -11,13 +11,16 @@ import Container from '@material-ui/core/Container';
 import './main.css'
 import useStyles from './main-styles';
 import { Link } from 'react-router-dom';
+
+
 export default function Main() {
   const classes = useStyles();
   const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+
   return (
+
     <AppBar position="relative" className="main-container">
       <Container className={classes.cardGrid} maxWidth="md">
-        {/* End hero unit */}
         <Grid container spacing={4}>
           {cards.map((card) => (
             <Grid item key={card} xs={12} sm={6} md={4}>
@@ -37,12 +40,10 @@ export default function Main() {
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary">
-                    <Link to={'/product/' + card}>View</Link>
+                    <Link to={`/product/${card}`}>Details</Link>
 
                   </Button>
-                  <Button size="small" color="primary">
-                    Edit
-                    </Button>
+
                 </CardActions>
               </Card>
             </Grid>
@@ -50,6 +51,5 @@ export default function Main() {
         </Grid>
       </Container>
     </AppBar>
-  );
+  )
 }
-

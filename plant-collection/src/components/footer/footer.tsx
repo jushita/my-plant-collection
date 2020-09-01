@@ -7,10 +7,10 @@ export default function Footer() {
     return (
         <footer className={classes.footer}>
             <Typography variant="h6" align="center" gutterBottom>
-                Copyright @ 2020
+                Copyright &#169; JRahman 2020
         </Typography>
             <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
-                Buy Plants, Live Happy.
+                Buy Plants, Live Happy
         </Typography>
         </footer>
     )
