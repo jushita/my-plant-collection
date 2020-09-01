@@ -6,15 +6,15 @@ import useStyles from './header-styles'
 import AppBar from '@material-ui/core/AppBar';
 
 export default function Header(): JSX.Element {
-    const classes = useStyles();
-    return (
-        <AppBar position="relative">
-        <Toolbar className={classes.navBar}>
-          <CameraIcon className={classes.icon} />
-          <Typography variant="h6" color="inherit" noWrap>
-           Plant Collection
+  const classes = useStyles();
+  return (
+    <AppBar position="relative">
+      <Toolbar className={classes.navBar}>
+        <CameraIcon className={classes.icon} />
+        <Typography variant="h6" color="inherit" noWrap>
+          Plant Collection
           </Typography>
-        </Toolbar>
-      </AppBar>
-    )
+      </Toolbar>
+    </AppBar>
+  )
 }
