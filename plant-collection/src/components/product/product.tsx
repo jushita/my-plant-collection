@@ -7,7 +7,6 @@ export default function Product() {
     return (
         <div>
             {id}
-            This will be the product page
         </div>
     )
 }

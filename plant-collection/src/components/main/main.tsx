@@ -11,19 +11,30 @@ import Container from '@material-ui/core/Container';
 import './main.css'
 import useStyles from './main-styles';
 import { Link } from 'react-router-dom';
-
+import { getPlants } from '../../services/product';
+import { Plant } from '../../models/Plant';
 
 export default function Main() {
   const classes = useStyles();
-  const cards = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+  const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
+
+  if (plants === undefined) {
+    getPlants().then(data => {
+      console.log('hello')
+      console.log(data);
+      setPlants(data);
+    });
+    console.log('returning')
+
+    return (<div>Loading...</div>);
+  }
 
   return (
-
     <AppBar position="relative" className="main-container">
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
-          {cards.map((card) => (
-            <Grid item key={card} xs={12} sm={6} md={4}>
+          {plants.map(plant => (
+            <Grid item key={plant.id} xs={12} sm={6} md={4}>
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
@@ -32,15 +43,15 @@ export default function Main() {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
-                    Heading
-                    </Typography>
+                    {plant.plantName}
+                  </Typography>
                   <Typography>
-                    This is a media card. You can use this section to describe the content.
-                    </Typography>
+                    {plant.plantDescription}
+                  </Typography>
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary">
-                    <Link to={`/product/${card}`}>Details</Link>
+                    <Link to={`/product/${plant.id}`}>Details</Link>
 
                   </Button>
 
