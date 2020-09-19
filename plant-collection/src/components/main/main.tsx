@@ -11,7 +11,7 @@ import Container from '@material-ui/core/Container';
 import './main.css'
 import useStyles from './main-styles';
 import { Link } from 'react-router-dom';
-import { getPlants } from '../../services/product';
+import { getPlants } from '../../services/plant';
 import { Plant } from '../../models/Plant';
 
 export default function Main() {
@@ -20,11 +20,8 @@ export default function Main() {
 
   if (plants === undefined) {
     getPlants().then(data => {
-      console.log('hello')
-      console.log(data);
       setPlants(data);
     });
-    console.log('returning')
 
     return (<div>Loading...</div>);
   }
