@@ -17,15 +17,15 @@ import { Plant } from '../../models/Plant';
 export default function Main() {
   const classes = useStyles();
   const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
-
   if (plants === undefined) {
     getPlants().then(data => {
       setPlants(data);
     });
-
     return (<div>Loading...</div>);
   }
 
+  const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
+  const asset_url = url;
   return (
     <AppBar position="relative" className="main-container">
       <Container className={classes.cardGrid} maxWidth="md">
@@ -35,16 +35,16 @@ export default function Main() {
               <Card className={classes.card}>
                 <CardMedia
                   className={classes.cardMedia}
-                  image="https://source.unsplash.com/random"
+                  image={`${asset_url}/${plant.plantResource}.jpeg`}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2">
                     {plant.plantName}
                   </Typography>
-                  <Typography>
+                  {/* <Typography>
                     {plant.plantDescription}
-                  </Typography>
+                  </Typography> */}
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary">
