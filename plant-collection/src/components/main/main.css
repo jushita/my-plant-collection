@@ -3,7 +3,8 @@
 }
 
 .main-container {
-    background-color: #fafafa !important;
+    background-color: #fff !important;
+    width: 100%
 }
 
 .header-text {

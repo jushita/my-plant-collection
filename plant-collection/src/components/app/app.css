@@ -1,0 +1,8 @@
+.app-body {
+    padding: 0px;
+    margin: 0px;
+}
+
+.MuiPaper-elevation4 {
+    box-shadow: none !important;
+}
