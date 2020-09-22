@@ -41,16 +41,11 @@ export default function Main() {
                   <Typography gutterBottom variant="h5" component="h2" className="card-title">
                     {plant.plantName}
                   </Typography>
-                  {/* <Typography>
-                    {plant.plantDescription}
-                  </Typography> */}
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary" >
                     <Link to={`/product/${plant.id}`} className="details-button">Details</Link>
-
                   </Button>
-
                 </CardActions>
               </Card>
             </Grid>
