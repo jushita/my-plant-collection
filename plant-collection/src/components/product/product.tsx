@@ -2,8 +2,6 @@ import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import { Card } from '@material-ui/core';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -11,7 +9,6 @@ import Container from '@material-ui/core/Container';
 import { useParams } from 'react-router-dom';
 import { Plant } from '../../models/Plant';
 import { getPlantById } from '../../services/plant';
-import { Link } from 'react-router-dom';
 import useStyles from './product-styles';
 
 export default function Product() {

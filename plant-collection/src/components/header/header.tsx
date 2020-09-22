@@ -16,6 +16,9 @@ export default function Header(): JSX.Element {
         <Typography variant="h6" color="inherit" noWrap>
           <Link className="headline" to={'/'}>Plant Collection</Link>
         </Typography>
+        <Typography variant="h6" color="inherit" noWrap>
+          <Link className="headline" to={'/form'}>Admin</Link>
+        </Typography>
       </Toolbar>
     </AppBar>
   )
