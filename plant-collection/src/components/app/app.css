@@ -5,3 +5,7 @@
 .MuiPaper-elevation4 {
     box-shadow: none !important;
 }
+.app-container {
+    position: relative;
+    z-index: 0;
+}
