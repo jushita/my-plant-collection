@@ -1,8 +1,16 @@
 #footer {
    z-index: 100;
-   position:absolute;
    width:100%;
    bottom: 0;
    background-color: #5cdb95;
    padding: 16px;
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+
+.admin-button {
+   background-color: #05386b !important;
+   margin-bottom: 10px !important;
 }

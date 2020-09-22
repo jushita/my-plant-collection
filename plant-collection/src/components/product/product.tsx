@@ -28,7 +28,7 @@ export default function Product() {
         <AppBar position="relative" className="main-container">
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={1} className="grid-container">
-                    <Grid item key={plant.id} md={12}>
+                    <Grid item key={plant.id} md={10}>
                         <Card>
                             <CardMedia
                                 className={classes.cardMedia}

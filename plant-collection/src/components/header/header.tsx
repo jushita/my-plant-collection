@@ -1,6 +1,6 @@
 import React from 'react';
 import Toolbar from '@material-ui/core/Toolbar';
-import CameraIcon from '@material-ui/icons/PhotoCamera';
+import FilterVintageIcon from '@material-ui/icons/FilterVintage';
 import Typography from '@material-ui/core/Typography';
 import useStyles from './header-styles'
 import AppBar from '@material-ui/core/AppBar';
@@ -12,12 +12,9 @@ export default function Header(): JSX.Element {
   return (
     <AppBar position="relative" className="header">
       <Toolbar className={classes.navBar}>
-        <CameraIcon className={classes.icon} />
+        <FilterVintageIcon fontSize="large" className={classes.icon} />
         <Typography variant="h6" color="inherit" noWrap>
           <Link className="headline" to={'/'}>Plant Collection</Link>
-        </Typography>
-        <Typography variant="h6" color="inherit" noWrap>
-          <Link className="headline" to={'/form'}>Admin</Link>
         </Typography>
       </Toolbar>
     </AppBar>
