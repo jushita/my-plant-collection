@@ -8,3 +8,7 @@
     background-color: #05386b !important;
 
 }
+
+.card-body {
+    margin-top: 10px !important;
+}

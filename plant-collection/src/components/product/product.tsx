@@ -30,29 +30,17 @@ export default function Product() {
     return (
         <AppBar position="relative" className="main-container">
             <Container className={classes.cardGrid} maxWidth="md">
-                <Grid container spacing={4} className="grid-container">
-                    <Grid item key={plant.id} xs={12} sm={6} md={4}>
+                <Grid container spacing={1} className="grid-container">
+                    <Grid item key={plant.id} xs={1} sm={1} md={12}>
                         <Card>
                             <CardMedia
                                 className={classes.cardMedia}
                                 image={`${asset_url}`}
                                 title="Image title"
                             />
-                            <CardContent className={classes.cardContent}>
-                                <Typography gutterBottom variant="h5" component="h2">
-                                    {plant.plantName}
-                                </Typography>
-                                {/* <Typography>
-                    {plant.plantDescription}
-                  </Typography> */}
-                            </CardContent>
-                            <CardActions>
-                                <Button size="small" color="primary">
-                                    <Link to={`/product/${plant.id}`}>Details</Link>
-
-                                </Button>
-
-                            </CardActions>
+                        </Card>
+                        <Card className={classes.productBody}>
+                            <Typography>Hii</Typography>
                         </Card>
                     </Grid>
                 </Grid>

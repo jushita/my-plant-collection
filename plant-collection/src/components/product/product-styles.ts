@@ -21,12 +21,17 @@ const useStyles = makeStyles((theme) => ({
         flexGrow: 1,
 
     },
+    productBody: {
+        marginTop: 20,
+        backgroundColor: '#05386b',
+        color: '#EDF5E1',
+        padding: 10
+
+    },
+
     footer: {
         backgroundColor: theme.palette.background.paper,
         padding: theme.spacing(6),
-    },
-
-    test: {
     }
 
 }));
