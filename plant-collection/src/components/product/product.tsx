@@ -40,7 +40,15 @@ export default function Product() {
                             />
                         </Card>
                         <Card className={classes.productBody}>
-                            <Typography>Hii</Typography>
+                            <Typography gutterBottom variant="h5" component="h2" className="card-title">
+                                {plant.plantName}
+                            </Typography>
+                            <Typography gutterBottom component="p" className="card-title">
+                                Plant Status: {plant.plantStatus}
+                            </Typography>
+                            <Typography gutterBottom component="p" className="card-title">
+                                {plant.plantDescription}
+                            </Typography>
                         </Card>
                     </Grid>
                 </Grid>
