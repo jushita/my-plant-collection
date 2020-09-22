@@ -11,7 +11,7 @@ export default (
       <div className="app-body">
         <Router>
           <Header></Header>
-          <div>
+          <div className="app-container">
             <Switch>
               <Route path="/product/:id">
                 <Product />

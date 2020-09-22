@@ -1,10 +1,5 @@
-.MuiContainer-maxWidthSm {
-    max-width: 1000px !important;
-}
-
 .main-container {
-    background-color: #fff !important;
-    width: 100%
+    background-color: #5cdb95 !important;
 }
 
 .header-text {
@@ -12,4 +7,15 @@
     border: 1px solid #ccc!important;
     border-radius: 4px;
     padding: 10px;
+}
+
+.card-title {
+    color: #EDF5E1 !important;
+}
+.details-button {
+    color: #EDF5E1 !important;
+}
+
+.details-button:active {
+    color: rgb(204, 216, 187) !important;
 }

@@ -10,7 +10,7 @@ export default function Footer() {
             <Typography align="center" gutterBottom>
                 Copyright &#169; JRahman 2020
             </Typography>
-            <Typography variant="subtitle1" align="center" color="textSecondary" component="p">
+            <Typography variant="subtitle1" align="center" component="p">
                 Buy Plants, Live Happy
             </Typography>
         </footer>

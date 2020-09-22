@@ -1,0 +1,10 @@
+.main-container {
+    background-color: #5cdb95 !important;
+    height: 100%;
+}
+
+
+.MuiPaper-root, MuiCard-root, makeStyles-card-7, MuiPaper-elevation1, MuiPaper-rounded {
+    background-color: #05386b !important;
+
+}

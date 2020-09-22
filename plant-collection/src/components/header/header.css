@@ -1,6 +1,6 @@
 .headline {
-    color: white;
+    color: #05386b;
 } 
 .headline:active {
-    color: rgb(177, 196, 173);
+    color: #379683;
 }

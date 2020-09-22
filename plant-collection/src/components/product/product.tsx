@@ -1,7 +1,7 @@
 import React from 'react';
 import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
+import { Card } from '@material-ui/core';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
@@ -30,9 +30,9 @@ export default function Product() {
     return (
         <AppBar position="relative" className="main-container">
             <Container className={classes.cardGrid} maxWidth="md">
-                <Grid container spacing={4}>
+                <Grid container spacing={4} className="grid-container">
                     <Grid item key={plant.id} xs={12} sm={6} md={4}>
-                        <Card className={classes.card}>
+                        <Card>
                             <CardMedia
                                 className={classes.cardMedia}
                                 image={`${asset_url}`}

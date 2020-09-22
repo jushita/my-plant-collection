@@ -10,7 +10,7 @@ import './header.css';
 export default function Header(): JSX.Element {
   const classes = useStyles();
   return (
-    <AppBar position="relative">
+    <AppBar position="relative" className="header">
       <Toolbar className={classes.navBar}>
         <CameraIcon className={classes.icon} />
         <Typography variant="h6" color="inherit" noWrap>
