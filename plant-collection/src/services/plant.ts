@@ -1,5 +1,14 @@
 import axios from 'axios';
 import { Plant } from '../models/Plant';
+import https from 'https';
+
+
+export default function () {
+    const agent = new https.Agent({
+        rejectUnauthorized: false
+    });
+}
+
 
 export function getPlants(): Promise<Plant[]> {
     return axios.get('http://localhost:3000/plants')

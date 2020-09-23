@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './form.css';
 import { Typography, Button } from '@material-ui/core';
@@ -20,10 +20,13 @@ interface IFormInput {
 
 export default function Form() {
     const { register, handleSubmit } = useForm<IFormInput>()
+    const [plant] = useState(0);
 
     const onSubmit = (data: IFormInput) => {
         let plant = new Plant('', data.plantName, data.plantDescription, data.plantStatus, data.plantResource);
-        addPlant(plant);
+        addPlant(plant).then(function (response) {
+            console.log(response)
+        });
     };
 
     return (
