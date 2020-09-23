@@ -14,3 +14,10 @@ export function getPlantById(id: string): Promise<Plant> {
             return response.data as Plant;
         });
 }
+
+export function addPlant(plant: Plant): Promise<Plant> {
+    return axios.post(`https://localhost:3000/plant`)
+        .then(response => {
+            return response.data as Plant;
+        });
+}
