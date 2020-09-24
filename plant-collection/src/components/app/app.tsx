@@ -4,9 +4,9 @@ import Main from '../main'
 import { BrowserRouter as Router, Switch, Route, match as routerMatch } from 'react-router-dom';
 import Product from '../product';
 import './app.css'
-import AddNewPlant from '../admin/add-new-plant';
-import Navigation from '../admin/navigation';
-import RemovePlant from '../admin/remove-plant';
+import AddNewPlant from '../manage/add-new-plant';
+import Navigation from '../manage/navigation';
+import RemovePlant from '../manage/remove-plant';
 
 
 export default (

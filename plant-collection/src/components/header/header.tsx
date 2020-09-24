@@ -29,7 +29,7 @@ export default function Header(): JSX.Element {
 
         <h2 className="headline">
           <a href={'/admin/'}>
-            Admin
+            Manage
           </a>
         </h2>
       </div>
