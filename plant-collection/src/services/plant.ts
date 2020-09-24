@@ -25,8 +25,10 @@ export function getPlantById(id: string): Promise<Plant> {
 }
 
 export function addPlant(plant: Plant): Promise<Plant> {
-    return axios.post(`https://localhost:3000/plant`)
+    return axios.post(`http://localhost:3000/plants`, plant)
         .then(response => {
             return response.data as Plant;
         });
 }
+
+

@@ -12,6 +12,7 @@ import useStyles, { Card } from './main-styles';
 import { Link } from 'react-router-dom';
 import { getPlants } from '../../services/plant';
 import { Plant } from '../../models/Plant';
+import Footer from './footer';
 
 export default function Main() {
   const classes = useStyles();
@@ -52,6 +53,9 @@ export default function Main() {
           ))}
         </Grid>
       </Container>
+      <Footer></Footer>
+
     </AppBar>
+
   )
 }

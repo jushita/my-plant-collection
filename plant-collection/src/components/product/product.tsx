@@ -32,7 +32,7 @@ export default function Product() {
                             <CardMedia
                                 className={classes.cardMedia}
                                 image={`${asset_url}`}
-                                title="Image title"
+                                title={plant.plantName}
                             />
                         </Card>
                         <Card className={classes.productBody}>

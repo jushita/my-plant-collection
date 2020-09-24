@@ -2,8 +2,8 @@ import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './form.css';
 import { Typography, Button } from '@material-ui/core';
-import { Plant } from '../../models/Plant';
-import { addPlant } from '../../services/plant';
+import { Plant } from '../../../models/Plant';
+import { addPlant } from '../../../services/plant';
 
 enum StatusEnum {
     healthy = "Healthy",
@@ -24,9 +24,7 @@ export default function Form() {
 
     const onSubmit = (data: IFormInput) => {
         let plant = new Plant('', data.plantName, data.plantDescription, data.plantStatus, data.plantResource);
-        addPlant(plant).then(function (response) {
-            console.log(response)
-        });
+        addPlant(plant);
     };
 
     return (
@@ -59,7 +57,6 @@ export default function Form() {
                         <Button variant="contained" color="primary" className="admin-button" type="submit">
                             Submit
                         </Button>
-
                     </div>
                 </form>
             </div>

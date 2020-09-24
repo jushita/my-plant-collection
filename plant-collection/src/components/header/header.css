@@ -1,6 +1,31 @@
 .headline {
     color: #05386b;
 } 
+.headline {
+    margin: 5px;
+    cursor: pointer;
+}
+
 .headline:active {
     color: #379683;
+    cursor: pointer;
+}
+
+.more-icon {
+    float: right !important;
+}
+.header {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+
+}
+.header-headline {
+    display: flex;
+}
+
+a {
+    text-decoration: none;
+    color: #05386b
+
 }
