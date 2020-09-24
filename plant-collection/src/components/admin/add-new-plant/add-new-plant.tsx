@@ -18,7 +18,7 @@ interface IFormInput {
     plantResource: string;
 }
 
-export default function Form() {
+export default function AddNewPlant() {
     const { register, handleSubmit } = useForm<IFormInput>()
     const [plant] = useState(0);
 
