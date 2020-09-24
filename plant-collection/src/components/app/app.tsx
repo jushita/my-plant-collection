@@ -6,6 +6,7 @@ import Product from '../product';
 import './app.css'
 import AddNewPlant from '../admin/add-new-plant';
 import Navigation from '../admin/navigation';
+import RemovePlant from '../admin/remove-plant';
 
 
 export default (
@@ -36,8 +37,14 @@ const AdminRouter = ({ match }: { match: routerMatch }) => {
   return (
     <div>
       <Navigation></Navigation>
-
       <Route exact path={match.url}>
+        <div className="flower-img">
+          <img src="https://www.animatedimages.org/data/media/595/animated-plant-image-0076.gif"
+            alt="animated-plant-image-0076" />
+        </div>
+      </Route>
+      <Route path={match.url + '/remove-plant'}>
+        <RemovePlant></RemovePlant>
       </Route>
       <Route path={match.url + '/add-new-plant'}>
         <AddNewPlant></AddNewPlant>

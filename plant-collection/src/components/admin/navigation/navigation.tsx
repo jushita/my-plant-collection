@@ -13,7 +13,7 @@ export default function Navigation() {
                     Add New Plant
                 </Button>
                 |
-                <Button variant="text" className="nav-button" type="submit">
+                <Button variant="text" className="nav-button" type="submit" href={'/admin/remove-plant'}>
                     Remove A Plant
                 </Button>
                 |

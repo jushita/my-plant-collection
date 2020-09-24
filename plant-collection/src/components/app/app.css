@@ -9,3 +9,10 @@
     position: relative;
     z-index: 0;
 }
+
+.flower-img {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    padding: 2%;
+}
