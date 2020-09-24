@@ -4,7 +4,7 @@ import Main from '../main'
 import { BrowserRouter as Router, Switch, Route, match as routerMatch } from 'react-router-dom';
 import Product from '../product';
 import './app.css'
-import Form from '../admin/form';
+import AddNewPlant from '../admin/add-new-plant';
 import Navigation from '../admin/navigation';
 
 
@@ -40,7 +40,7 @@ const AdminRouter = ({ match }: { match: routerMatch }) => {
       <Route exact path={match.url}>
       </Route>
       <Route path={match.url + '/add-new-plant'}>
-        <Form></Form>
+        <AddNewPlant></AddNewPlant>
       </Route>
     </div>
 

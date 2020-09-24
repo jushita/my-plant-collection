@@ -9,15 +9,15 @@ export default function Navigation() {
                 <p className="nav-text">Hello Plant Parent! What do you want to do today?</p>
             </div>
             <div>
-                <Button variant="contained" className="nav-button" type="submit" href={'/admin/add-new-plant'}>
+                <Button variant="text" className="nav-button" type="submit" href={'/admin/add-new-plant'}>
                     Add New Plant
                 </Button>
                 |
-                <Button variant="contained" className="nav-button" type="submit">
+                <Button variant="text" className="nav-button" type="submit">
                     Remove A Plant
                 </Button>
                 |
-                <Button variant="contained" className="nav-button" type="submit">
+                <Button variant="text" className="nav-button" type="submit">
                     Edit Existing Plant
                 </Button>
             </div>

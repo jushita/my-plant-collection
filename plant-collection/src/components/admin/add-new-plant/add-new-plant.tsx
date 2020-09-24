@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
-import './form.css';
+import './add-new-plant.css';
 import { Typography, Button } from '@material-ui/core';
 import { Plant } from '../../../models/Plant';
 import { addPlant } from '../../../services/plant';
