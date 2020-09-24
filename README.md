@@ -1,8 +1,16 @@
 # Plant Inventory System
 
-The application serves as the UI for a plant inventory system
+The application serves as the UI for my plant inventory system.
+I have created this application to keep track of my plants.
+You can view all the items in the dashboard get details aboput indivuals and also use the admin panel to add new plants.
 
-![Screenshot](screenshot.png)(https://github.com/jushita/plant-inventory-system-ui/issues/1)
+## Tech Stack
+
+React
+TypeScript
+
+
+![Screenshot](screenshot.png)
 
 
 
