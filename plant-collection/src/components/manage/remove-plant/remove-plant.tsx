@@ -1,14 +1,14 @@
 import React from 'react';
 import './remove-plant.css';
 import { Plant } from '../../../models/Plant';
-import { getPlants } from '../../../services/plant';
-import { Button } from '@material-ui/core';
+import { getPlants, removePlant } from '../../../services/plant';
 
 
 
 
 export default function RemovePlant() {
     const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
+
     if (plants === undefined) {
         getPlants().then(data => {
             setPlants(data);
@@ -16,10 +16,9 @@ export default function RemovePlant() {
         return (<div>Loading...</div>)
     }
 
-    const onRemove = () => {
-        console.log(hii)
+    const onRemove = (id: string) => {
+        removePlant(id);
     }
-
 
     return (
         <div className="remove-plant-container">
@@ -29,9 +28,9 @@ export default function RemovePlant() {
                         {plant.plantName}
                     </div>
                     <div className="plant-button">
-                        <Button variant="contained" color="primary" className="remove-button" type="submit" >
-                            Remove
-                        </Button>
+                        <button className="remove-button" onClick={() => onRemove(plant.id)}>
+                            REMOVE
+                        </button>
                     </div>
                 </div>
 

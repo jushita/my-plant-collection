@@ -32,3 +32,10 @@ export function addPlant(plant: Plant): Promise<Plant> {
 }
 
 
+export function removePlant(id: string): Promise<string> {
+    return axios.delete(`http://localhost:3000/plants/${id}`)
+        .then(response => {
+            return response.data as string;
+        })
+}
+
