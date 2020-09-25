@@ -1,1 +1,1 @@
-export { default } from './editPlant';
+export { default } from './edit-plant';

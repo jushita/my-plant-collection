@@ -17,7 +17,7 @@ export default function Navigation() {
                     Remove A Plant
                 </Button>
                 |
-                <Button variant="text" className="nav-button" type="submit">
+                <Button variant="text" className="nav-button" type="submit" href={'/admin/edit-existing-plant'}>
                     Edit Existing Plant
                 </Button>
             </div>

@@ -7,6 +7,7 @@ import './app.css'
 import AddNewPlant from '../manage/add-new-plant';
 import Navigation from '../manage/navigation';
 import RemovePlant from '../manage/remove-plant';
+import EditPlant from '../manage/edit-plant';
 
 
 export default (
@@ -48,6 +49,9 @@ const AdminRouter = ({ match }: { match: routerMatch }) => {
       </Route>
       <Route path={match.url + '/add-new-plant'}>
         <AddNewPlant></AddNewPlant>
+      </Route>
+      <Route path={match.url + '/edit-existing-plant'}>
+        <EditPlant></EditPlant>
       </Route>
     </div>
 
