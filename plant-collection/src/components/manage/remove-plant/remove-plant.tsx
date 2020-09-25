@@ -17,7 +17,9 @@ export default function RemovePlant() {
     }
 
     const onRemove = (id: string) => {
+        const newPlantList = plants.filter((item) => item.id !== id);
         removePlant(id);
+        setPlants(newPlantList);
     }
 
     return (
