@@ -22,15 +22,15 @@ export default function Product() {
         return <div>Loading...</div>
     }
     const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
-    const asset_url = url + '/' + plant.plantResource + '.jpeg'
+    const asset_url = url + '/' + plant.plantResource + '.png'
     return (
         <AppBar position="relative" className="main-container">
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={1} className="grid-container">
-                    <Grid item key={plant.id} md={10}>
+                    <Grid item key={plant.id} md={8}>
                         <Card>
                             <CardMedia
-                                className={classes.cardMedia}
+                                component="img"
                                 image={`${asset_url}`}
                                 title={plant.plantName}
                             />

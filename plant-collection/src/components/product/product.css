@@ -9,6 +9,18 @@
 
 }
 
+.MuiCardMedia-root, makeStyles-cardMedia-5, MuiCardMedia-media, MuiCardMedia-img {
+    max-height: 200px;
+    max-width: 500px;
+    padding-top: 0px !important;
+}
+
 .card-body {
     margin-top: 10px !important;
+}
+
+
+.MuiCardMedia-img {
+    padding-top: 0px !important;
+
 }

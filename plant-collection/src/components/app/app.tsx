@@ -41,7 +41,7 @@ const AdminRouter = ({ match }: { match: routerMatch }) => {
       <Route exact path={match.url}>
         <div className="flower-img">
           <img src="https://www.animatedimages.org/data/media/595/animated-plant-image-0076.gif"
-            alt="animated-plant-image-0076" />
+            alt="animated-plant-0076" />
         </div>
       </Route>
       <Route path={match.url + '/remove-plant'}>

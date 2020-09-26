@@ -1,12 +1,11 @@
 import axios from 'axios';
 import { Plant } from '../models/Plant';
-import https from 'https';
 
 
 export default function () {
-    const agent = new https.Agent({
-        rejectUnauthorized: false
-    });
+    // const agent = new https.Agent({
+    //     rejectUnauthorized: false
+    // });
 }
 
 

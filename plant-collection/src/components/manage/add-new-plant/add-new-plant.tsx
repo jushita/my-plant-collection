@@ -16,7 +16,7 @@ export default function AddNewPlant() {
     let { register, errors, handleSubmit, reset } = useForm<IFormInput>();
     let [message, setMessage] = useState('');
     const onSubmit = (data: IFormInput) => {
-        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.plantStatus, data.plantResource);
+        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.plantResource, data.plantStatus);
         addPlant(plant);
         setMessage(`Plant Added to Inventory!`)
         setTimeout(() => setMessage(``), 2000);
@@ -36,7 +36,7 @@ export default function AddNewPlant() {
                     </div>
                     <div className="form-item">
                         <label>Description</label>
-                        <input name="plantDescription" ref={register({ required: true })} className="form-input" />
+                        <textarea name="plantDescription" ref={register({ required: true })} className="form-input" />
                         <div className="error-message">{errors.plantDescription && "Your input is required"}</div>
                     </div>
                     <div className="form-item">
@@ -48,9 +48,9 @@ export default function AddNewPlant() {
                     <div className="form-item">
                         <label>Status</label>
                         <select name="plantStatus" ref={register({ required: true })} className="form-select">
-                            <option value="healthty">Healthy</option>
-                            <option value="unhealthy">Unhealthy</option>
-                            <option value="decesed">Decesed</option>
+                            <option value="Healthy">Healthy</option>
+                            <option value="Unhealthy">Unhealthy</option>
+                            <option value="Deceased">Deceased</option>
                         </select>
                         <div className="error-message">{errors.plantStatus && "Your input is required"}</div>
 

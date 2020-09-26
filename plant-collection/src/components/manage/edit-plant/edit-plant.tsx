@@ -1,7 +1,8 @@
 import React from 'react';
 import './edit-plant.css';
 import { Plant } from '../../../models/Plant';
-import { getPlants, removePlant } from '../../../services/plant';
+import { getPlants } from '../../../services/plant';
+import EditModal from '../edit-modal';
 
 
 export default function EditPlant() {
@@ -14,11 +15,9 @@ export default function EditPlant() {
         return (<div>Loading...</div>)
     }
 
-    const onEdit = (id: string) => {
-        const newPlantList = plants.filter((item) => item.id !== id);
-        removePlant(id);
-        setPlants(newPlantList);
-    }
+    // const onEdit = (id: string) => {
+
+    // }
 
     return (
         <div className="remove-plant-container">
@@ -28,9 +27,7 @@ export default function EditPlant() {
                         {plant.plantName}
                     </div>
                     <div className="plant-button">
-                        <button className="remove-button" onClick={() => onEdit(plant.id)}>
-                            Edit
-                        </button>
+                        <EditModal plant={plant}></EditModal>
                     </div>
                 </div>
 

@@ -34,8 +34,9 @@ export default function Main() {
             <Grid item key={plant.id} xs={12} sm={10} md={4}>
               <Card>
                 <CardMedia
+                  component="img"
                   className={classes.cardMedia}
-                  image={`${asset_url}/${plant.plantResource}.jpeg`}
+                  image={`${asset_url}/${plant.plantResource}.png`}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>

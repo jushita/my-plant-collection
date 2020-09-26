@@ -1,6 +1,6 @@
 import React from 'react';
 import useStyles from './footer-styles'
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import './footer.css'
 
 export default function Footer() {
