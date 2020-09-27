@@ -15,19 +15,28 @@ export default function EditPlant() {
         return (<div>Loading...</div>)
     }
 
-    // const onEdit = (id: string) => {
 
-    // }
+    function handleChange(index: number, plant?: Plant) {
+        if (plant) {
+            const copy: Plant[] = [];
+            if (plants) {
+                copy.push(...plants);
+            }
+
+            copy[index] = plant;
+            setPlants(copy);
+        }
+    }
 
     return (
         <div className="remove-plant-container">
-            {plants.map(plant => (
+            {plants.map((plant, i) => (
                 <div key={plant.id} className="plant-item">
                     <div className="plant-item-name">
                         {plant.plantName}
                     </div>
-                    <div className="plant-button">
-                        <EditModal plant={plant}></EditModal>
+                    <div className="plant-button" >
+                        <EditModal plant={plant} onClose={(plant?: Plant) => handleChange(i, plant)}></EditModal>
                     </div>
                 </div>
 

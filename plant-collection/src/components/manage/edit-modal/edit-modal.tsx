@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useState } from 'react';
 import useStyles from './edit-modal-styles';
 import Modal from '@material-ui/core/Modal';
 import { Plant } from '../../../models/Plant';
@@ -6,7 +6,8 @@ import Editable from '../editable';
 import { updatePlant } from '../../../services/plant';
 
 interface EditModalProps {
-    plant: Plant
+    plant: Plant,
+    onClose: (plant?: Plant) => void;
 }
 
 
@@ -34,6 +35,7 @@ export default function EditModal(props: EditModalProps) {
     const [open, setOpen] = React.useState(false);
 
     const handleOpen = () => {
+        setMessage(``);
         setOpen(true);
     };
 
@@ -115,9 +117,13 @@ export default function EditModal(props: EditModalProps) {
 
     function update() {
         let plant = new Plant(props.plant.id, name, description, resource, status);
-        updatePlant(plant);
         setMessage(`Plant info submitted to be updated`);
-        setTimeout(() => handleClose(), 2000);
+        updatePlant(plant).then(plant => {
+            setTimeout(() => {
+                handleClose();
+                props.onClose(plant);
+            }, 2000);
+        });
     }
 
     return (
