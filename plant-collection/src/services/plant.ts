@@ -38,3 +38,11 @@ export function removePlant(id: string): Promise<string> {
         })
 }
 
+export function updatePlant(plant: Plant): Promise<Plant> {
+    return axios.put(`http://localhost:3000/plants/${plant.id}`, plant)
+        .then(response => {
+            console.log(response)
+            return response.data as Plant;
+        })
+}
+

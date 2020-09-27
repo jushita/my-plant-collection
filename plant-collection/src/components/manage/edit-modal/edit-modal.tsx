@@ -3,6 +3,7 @@ import useStyles from './edit-modal-styles';
 import Modal from '@material-ui/core/Modal';
 import { Plant } from '../../../models/Plant';
 import Editable from '../editable';
+import { updatePlant } from '../../../services/plant';
 
 interface EditModalProps {
     plant: Plant
@@ -15,6 +16,7 @@ export default function EditModal(props: EditModalProps) {
     const [name, setName] = useState(props.plant.plantName);
     const [status, setStaus] = useState(props.plant.plantStatus);
     const [resource, setResource] = useState(props.plant.plantResource)
+    const [message, setMessage] = useState("");
 
     function getModalStyle() {
         const top = 50;
@@ -105,8 +107,18 @@ export default function EditModal(props: EditModalProps) {
                     />
                 </Editable>
             </div>
+
+            <button onClick={update}>Submit</button>
+            <div>{message}</div>
         </div>
     );
+
+    function update() {
+        let plant = new Plant(props.plant.id, name, description, resource, status);
+        updatePlant(plant);
+        setMessage(`Plant info submitted to be updated`);
+        setTimeout(() => handleClose(), 2000);
+    }
 
     return (
         <div>
