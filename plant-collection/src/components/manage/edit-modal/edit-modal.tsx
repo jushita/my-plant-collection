@@ -10,8 +10,11 @@ interface EditModalProps {
 
 
 export default function EditModal(props: EditModalProps) {
-    const inputRef = useRef();
-    const [task, setTask] = useState("");
+    const classes = useStyles();
+    const [description, setDescription] = useState(props.plant.plantDescription);
+    const [name, setName] = useState(props.plant.plantName);
+    const [status, setStaus] = useState(props.plant.plantStatus);
+    const [resource, setResource] = useState(props.plant.plantResource)
 
     function getModalStyle() {
         const top = 50;
@@ -24,8 +27,6 @@ export default function EditModal(props: EditModalProps) {
         };
     }
 
-
-    const classes = useStyles();
     // getModalStyle is not a pure function, we roll the style only on the first render
     const [modalStyle] = React.useState(getModalStyle);
     const [open, setOpen] = React.useState(false);
@@ -41,27 +42,69 @@ export default function EditModal(props: EditModalProps) {
     const body = (
         <div style={modalStyle} className={classes.paper}>
             <h2 id="simple-modal-title">Edit {props.plant.plantName}</h2>
-            <p id="simple-modal-description">
-                Name: {props.plant.plantName} <br />
-                Status: {props.plant.plantStatus} <br />
-                Description: {props.plant.plantDescription} <br />
-                Resource: {props.plant.plantResource}
-            </p>
+            <div id="simple-modal-description">
+                Name:
+                <Editable
+                    text={name}
+                    placeholder={name}
+                    type="input"
+                >
+                    <input
+                        name="name"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                        placeholder={props.plant.plantName}
+                        value={name}
+                        onChange={e => setName(e.target.value)}
+                    />
+                </Editable>
+                <br />
+                Status:
+                <Editable
+                    text={status}
+                    placeholder={status}
+                    type="input"
+                >
+                    <input
+                        name="status"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                        placeholder={props.plant.plantStatus}
+                        value={status}
+                        onChange={e => setStaus(e.target.value)}
+                    />
+                </Editable>
+                <br />
+                Description:
+                <Editable
+                    text={description}
+                    placeholder={description}
+                    type="textarea"
+                >
+                    <textarea
+                        name="description"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                        placeholder={props.plant.plantDescription}
+                        value={description}
+                        onChange={e => setDescription(e.target.value)}
+                    />
+                </Editable>
 
-            <Editable
-                text={task}
-                placeholder={props.plant.plantName}
-                type="input"
-            >
-                <input
-                    type="text"
-                    name="task"
-                    placeholder={props.plant.plantName}
-                    value={props.plant.plantName}
-                    onChange={e => setTask(e.target.value)}
-                />
+                <br />
+                Resource:
 
-            </Editable>
+                <Editable
+                    text={resource}
+                    placeholder={resource}
+                    type="input"
+                >
+                    <input
+                        name="resource"
+                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                        placeholder={props.plant.plantResource}
+                        value={resource}
+                        onChange={e => setResource(e.target.value)}
+                    />
+                </Editable>
+            </div>
         </div>
     );
 
