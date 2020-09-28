@@ -23,14 +23,14 @@ export default function RemovePlant() {
     }
 
     return (
-        <div className="remove-plant-container">
+        <div className="plant-box-container">
             {plants.map(plant => (
                 <div key={plant.id} className="plant-item">
                     <div className="plant-item-name">
                         {plant.plantName}
                     </div>
                     <div className="plant-button">
-                        <button className="remove-button" onClick={() => onRemove(plant.id)}>
+                        <button className="custom-button" onClick={() => onRemove(plant.id)}>
                             REMOVE
                         </button>
                     </div>

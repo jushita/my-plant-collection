@@ -56,9 +56,7 @@ export default function AddNewPlant() {
 
                     </div>
                     <div className="form-item">
-                        <Button variant="contained" color="primary" className="admin-button" type="submit">
-                            Submit
-                        </Button>
+                        <button className="custom-button" type="submit">Submit</button>
 
                     </div>
                     <div>{message}</div>

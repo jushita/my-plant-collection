@@ -4,6 +4,7 @@ import Modal from '@material-ui/core/Modal';
 import { Plant } from '../../../models/Plant';
 import Editable from '../editable';
 import { updatePlant } from '../../../services/plant';
+import './edit-modal.css';
 
 interface EditModalProps {
     plant: Plant,
@@ -45,79 +46,98 @@ export default function EditModal(props: EditModalProps) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <h2 id="simple-modal-title">Edit {props.plant.plantName}</h2>
-            <div id="simple-modal-description">
-                Name:
-                <Editable
-                    text={name}
-                    placeholder={name}
-                    type="input"
-                >
-                    <input
-                        name="name"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                        placeholder={props.plant.plantName}
-                        value={name}
-                        onChange={e => setName(e.target.value)}
-                    />
-                </Editable>
-                <br />
-                Status:
-                <Editable
-                    text={status}
-                    placeholder={status}
-                    type="input"
-                >
-                    <input
-                        name="status"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                        placeholder={props.plant.plantStatus}
-                        value={status}
-                        onChange={e => setStaus(e.target.value)}
-                    />
-                </Editable>
-                <br />
-                Description:
-                <Editable
-                    text={description}
-                    placeholder={description}
-                    type="textarea"
-                >
-                    <textarea
-                        name="description"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                        placeholder={props.plant.plantDescription}
-                        value={description}
-                        onChange={e => setDescription(e.target.value)}
-                    />
-                </Editable>
+            <h2 className="modal-title">Edit {props.plant.plantName}</h2>
+            <hr />
+            <div id="modal-description">
+                <div className="input-area">
+                    <div className="input-container">
+                        <span className="label-area">Name: </span>
+                        <Editable
+                            text={name}
+                            placeholder={name}
+                            type="input"
+                        >
+                            <input
+                                name="name"
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                                placeholder={props.plant.plantName}
+                                value={name}
+                                onChange={e => setName(e.target.value)}
+                            />
+                        </Editable>
+                    </div>
+                </div>
+                <hr />
 
-                <br />
-                Resource:
+                <div className="input-area">
+                    <div className="input-container">
+                        <span className="label-area">Status:</span>
+                        <Editable
+                            text={status}
+                            placeholder={status}
+                            type="input"
+                        >
+                            <input
+                                name="status"
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                                placeholder={props.plant.plantStatus}
+                                value={status}
+                                onChange={e => setStaus(e.target.value)}
+                            />
+                        </Editable>
+                    </div>
+                </div>
+                <hr />
 
-                <Editable
-                    text={resource}
-                    placeholder={resource}
-                    type="input"
-                >
-                    <input
-                        name="resource"
-                        className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                        placeholder={props.plant.plantResource}
-                        value={resource}
-                        onChange={e => setResource(e.target.value)}
-                    />
-                </Editable>
+                <div className="input-area">
+                    <div className="input-container">
+                        <span className="label-area">Description: </span>
+                        <Editable
+                            text={description}
+                            placeholder={description}
+                            type="textarea"
+                        >
+                            <textarea
+                                name="description"
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                                placeholder={props.plant.plantDescription}
+                                value={description}
+                                onChange={e => setDescription(e.target.value)}
+                            />
+                        </Editable>
+                    </div>
+                </div>
+                <hr />
+
+                <div className="input-area">
+                    <div className="input-container">
+                        <span className="label-area">Resource: </span>
+                        <Editable
+                            text={resource}
+                            placeholder={resource}
+                            type="input"
+                        >
+                            <input
+                                name="resource"
+                                className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
+                                placeholder={props.plant.plantResource}
+                                value={resource}
+                                onChange={e => setResource(e.target.value)}
+                            />
+                        </Editable>
+                    </div>
+                </div>
             </div>
+            <hr />
 
-            <button onClick={update}>Submit</button>
-            <div>{message}</div>
+            <button className="custom-button" onClick={update}>Submit</button>
+            <div className="message">{message}</div>
         </div>
     );
 
     function update() {
         let plant = new Plant(props.plant.id, name, description, resource, status);
-        setMessage(`Plant info submitted to be updated`);
+        setMessage(`Plant info submitted to be updated!!!`);
         updatePlant(plant).then(plant => {
             setTimeout(() => {
                 handleClose();
@@ -128,7 +148,7 @@ export default function EditModal(props: EditModalProps) {
 
     return (
         <div>
-            <button type="button" className="remove-button" onClick={handleOpen}>
+            <button type="button" className="custom-button" onClick={handleOpen}>
                 Edit
             </button>
             <Modal

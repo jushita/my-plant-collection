@@ -16,7 +16,7 @@ export default function Editable(props: EditableProp) {
         // Handle when key is pressed
     };
     return (
-        <section {...props}>
+        <section {...props} className="section-container">
             {isEditing ? (
                 <div onBlur={() => setEditing(false)}
                     onKeyDown={e => handleKeyDown(e, props.type)}

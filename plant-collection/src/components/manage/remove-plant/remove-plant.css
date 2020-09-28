@@ -1,4 +1,4 @@
-.remove-plant-container {
+.plant-box-container {
     display: flex;
     justify-content: space-between;
     flex-direction: column;
@@ -29,7 +29,7 @@
     /* margin-left: auto; */
 }
 
-.remove-button {
+.custom-button {
     background-color: #05386b !important;
     border: none;
     color: white;

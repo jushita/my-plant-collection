@@ -29,7 +29,7 @@ export default function EditPlant() {
     }
 
     return (
-        <div className="remove-plant-container">
+        <div className="plant-box-container">
             {plants.map((plant, i) => (
                 <div key={plant.id} className="plant-item">
                     <div className="plant-item-name">
