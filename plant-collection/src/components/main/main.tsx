@@ -17,6 +17,29 @@ import Footer from './footer';
 export default function Main() {
   const classes = useStyles();
   const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
+  const [searchTerm, setSearchTerm] = React.useState("");
+  const [searchResults, setSearchResults] = React.useState<Plant[]>([]);
+  const handleChange = (e: any) => {
+    setSearchTerm(e.target.value)
+
+  }
+
+  function back() {
+    getPlants().then(data => {
+      setPlants(data);
+    });
+  }
+
+  React.useEffect(() => {
+    if (plants) {
+      const results: Plant[] = plants.filter(plant =>
+        plant.plantName.toLowerCase().includes(searchTerm)
+      );
+      setPlants(results);
+    }
+
+  }, [searchTerm]);
+
   if (plants === undefined) {
     getPlants().then(data => {
       setPlants(data);
@@ -28,6 +51,17 @@ export default function Main() {
   const asset_url = url;
   return (
     <AppBar position="relative" className="main-container">
+      <button onClick={() => back()}>back</button>
+
+      <div className="search-bar">
+        <input
+          type="text"
+          placeholder="Search"
+          value={searchTerm}
+          onChange={handleChange}
+        />
+        <li>{searchResults.map(p => <div key={p.id}>{p.plantName}</div>)}</li>
+      </div>
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
           {plants.map(plant => (

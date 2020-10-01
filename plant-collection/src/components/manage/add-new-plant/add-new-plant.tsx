@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from 'react-hook-form';
 import './add-new-plant.css';
-import { Typography, Button } from '@material-ui/core';
+import { Typography } from '@material-ui/core';
 import { Plant } from '../../../models/Plant';
 import { addPlant } from '../../../services/plant';
 
@@ -43,7 +43,6 @@ export default function AddNewPlant() {
                         <label>Plant Resource</label>
                         <input name="plantResource" ref={register({ required: true })} className="form-input" />
                         <div className="error-message">{errors.plantResource && "Your input is required"}</div>
-
                     </div>
                     <div className="form-item">
                         <label>Status</label>
@@ -53,14 +52,11 @@ export default function AddNewPlant() {
                             <option value="Deceased">Deceased</option>
                         </select>
                         <div className="error-message">{errors.plantStatus && "Your input is required"}</div>
-
                     </div>
                     <div className="form-item">
                         <button className="custom-button" type="submit">Submit</button>
-
                     </div>
                     <div>{message}</div>
-
                 </form>
             </div>
         </div>
