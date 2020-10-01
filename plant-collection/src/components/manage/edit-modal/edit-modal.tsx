@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import useStyles from './edit-modal-styles';
 import Modal from '@material-ui/core/Modal';
 import { Plant } from '../../../models/Plant';
-import Editable from '../editable';
+import Editable from '../../common/editable';
 import { updatePlant } from '../../../services/plant';
 import './edit-modal.css';
 

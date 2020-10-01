@@ -12,14 +12,10 @@ interface EditableProp {
 
 export default function Editable(props: EditableProp) {
     const [isEditing, setEditing] = useState(false);
-    const handleKeyDown = (event: any, type: any) => {
-        // Handle when key is pressed
-    };
     return (
         <section {...props} className="section-container">
             {isEditing ? (
                 <div onBlur={() => setEditing(false)}
-                    onKeyDown={e => handleKeyDown(e, props.type)}
                 >
                     {props.children}
                 </div>
@@ -28,7 +24,6 @@ export default function Editable(props: EditableProp) {
                     >
                         <span>
                             {props.text || props.placeholder || "Editable content"}
-
                         </span>
 
                     </div>

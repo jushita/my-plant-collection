@@ -21,7 +21,6 @@ export default function Main() {
   const [searchResults, setSearchResults] = React.useState<Plant[]>([]);
   const handleChange = (e: any) => {
     setSearchTerm(e.target.value)
-
   }
 
   function back() {
@@ -60,8 +59,8 @@ export default function Main() {
           value={searchTerm}
           onChange={handleChange}
         />
-        <li>{searchResults.map(p => <div key={p.id}>{p.plantName}</div>)}</li>
       </div>
+
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
           {plants.map(plant => (
