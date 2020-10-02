@@ -13,12 +13,12 @@ import { Link } from 'react-router-dom';
 import { getPlants } from '../../services/plant';
 import { Plant } from '../../models/Plant';
 import Footer from './footer';
+import Search from '../common/search';
 
 export default function Main() {
   const classes = useStyles();
   const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
   const [searchTerm, setSearchTerm] = React.useState("");
-  const [searchResults, setSearchResults] = React.useState<Plant[]>([]);
   const handleChange = (e: any) => {
     setSearchTerm(e.target.value)
   }
@@ -46,12 +46,19 @@ export default function Main() {
     return (<div>Loading...</div>);
   }
 
+  function onSearch(plants: Plant[]) {
+    setPlants(plants);
+  }
+
   const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
   const asset_url = url;
   return (
     <AppBar position="relative" className="main-container">
       <button onClick={() => back()}>back</button>
 
+      <Search plants={plants}
+        search={onSearch}
+      />
       <div className="search-bar">
         <input
           type="text"
