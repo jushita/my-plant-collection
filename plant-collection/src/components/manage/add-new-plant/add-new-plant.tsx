@@ -9,20 +9,23 @@ interface IFormInput {
     plantName: string;
     plantStatus: string;
     plantDescription: string;
-    plantResource: string;
+    plantResource: any;
 }
 
 export default function AddNewPlant() {
     let { register, errors, handleSubmit, reset } = useForm<IFormInput>();
     let [message, setMessage] = useState('');
+
     const onSubmit = (data: IFormInput) => {
-        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.plantResource, data.plantStatus);
-        addPlant(plant);
+        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.plantResource[0].name, data.plantStatus);
+        addPlant(plant).then((data) => {
+            reset(new Plant('', '', '', '', ''));
+        })
         setMessage(`Plant Added to Inventory!`)
         setTimeout(() => setMessage(``), 2000);
-        reset(new Plant('', '', '', '', ''));
-
     }
+
+
     return (
 
         <div className="form-box">
@@ -41,7 +44,7 @@ export default function AddNewPlant() {
                     </div>
                     <div className="form-item">
                         <label>Plant Resource</label>
-                        <input name="plantResource" ref={register({ required: true })} className="form-input" />
+                        <input ref={register({ required: true })} className="form-input" type="file" name="plantResource" />
                         <div className="error-message">{errors.plantResource && "Your input is required"}</div>
                     </div>
                     <div className="form-item">

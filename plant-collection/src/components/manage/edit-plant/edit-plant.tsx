@@ -43,7 +43,6 @@ export default function EditPlant() {
                     search={onSearch}
                     onResults={onSearch}
                 />
-
             </div>
             <div className="plant-box-container">
                 {searchResults.map((plant, i) => (
