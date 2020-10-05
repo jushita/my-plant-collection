@@ -3,14 +3,17 @@ import './edit-plant.css';
 import { Plant } from '../../../models/Plant';
 import { getPlants } from '../../../services/plant';
 import EditModal from '../edit-modal';
+import Search from '../../common/search';
 
 
 export default function EditPlant() {
     const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
+    const [searchResults, setSearchResults] = React.useState<Plant[] | undefined>([]);
 
-    if (plants === undefined) {
+    if (plants === undefined || searchResults === undefined) {
         getPlants().then(data => {
             setPlants(data);
+            setSearchResults(data);
         });
         return (<div>Loading...</div>)
     }
@@ -25,22 +28,36 @@ export default function EditPlant() {
 
             copy[index] = plant;
             setPlants(copy);
+            setSearchResults(copy);
         }
     }
 
-    return (
-        <div className="plant-box-container">
-            {plants.map((plant, i) => (
-                <div key={plant.id} className="plant-item">
-                    <div className="plant-item-name">
-                        {plant.plantName}
-                    </div>
-                    <div className="plant-button" >
-                        <EditModal plant={plant} onClose={(plant?: Plant) => handleChange(i, plant)}></EditModal>
-                    </div>
-                </div>
+    function onSearch(plants: Plant[]) {
+        setSearchResults(plants);
+    }
 
-            ))}
+    return (
+        <div className="manage-container">
+            <div className="search-bar">
+                <Search plants={plants}
+                    search={onSearch}
+                    onResults={onSearch}
+                />
+
+            </div>
+            <div className="plant-box-container">
+                {searchResults.map((plant, i) => (
+                    <div key={plant.id} className="plant-item">
+                        <div className="plant-item-name">
+                            {plant.plantName}
+                        </div>
+                        <div className="plant-button" >
+                            <EditModal plant={plant} onClose={(plant?: Plant) => handleChange(i, plant)}></EditModal>
+                        </div>
+                    </div>
+
+                ))}
+            </div>
         </div>
     )
 }

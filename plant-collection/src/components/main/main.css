@@ -31,3 +31,8 @@
     height: 300px;
     background-color: brown;
 }
+
+.search-nav {
+    display: flex;
+    justify-content: center;
+}
