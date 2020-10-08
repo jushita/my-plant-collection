@@ -39,3 +39,10 @@ export function updatePlant(plant: Plant): Promise<Plant> {
         })
 }
 
+export function addPlantImage(photo: FormData) {
+    console.log(`getting here??`)
+    return axios.post(`http://localhost:3000/plants/upload`, photo)
+        .then(response => {
+            return response.data as Plant;
+        });
+}

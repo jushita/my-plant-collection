@@ -3,7 +3,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Button from '@material-ui/core/Button';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import AutorenewIcon from '@material-ui/icons/Autorenew';
 import CardMedia from '@material-ui/core/CardMedia';
 import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
@@ -20,26 +19,20 @@ export default function Main() {
   const classes = useStyles();
   const [plants, setPlants] = React.useState<Plant[] | undefined>(undefined);
   const [searchResults, setSearchResults] = React.useState<Plant[] | undefined>([]);
-  const [state, setState] = React.useState<{ plants: Plant[] | undefined, searchResults: Plant[] }>({
-    plants: [],
-    searchResults: []
-  });
-  const [searchTerm, setSearchTerm] = React.useState("");
+  //   const [state, setState] = React.useState<{ plants: Plant[] | undefined, searchResults: Plant[] }>({
+  //   plants: [],
+  //   searchResults: []
+  // });
 
   function getAllPlantsAndSet() {
     getPlants().then(data => {
       setPlants(data);
       setSearchResults(data);
-      setState({
-        plants: data,
-        searchResults: data
-      });
+      // setState({
+      //   plants: data,
+      //   searchResults: data
+      // });
     });
-  }
-
-
-  function back() {
-    getAllPlantsAndSet();
   }
 
   if (plants === undefined || searchResults === undefined) {

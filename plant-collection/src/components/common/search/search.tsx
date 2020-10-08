@@ -15,10 +15,9 @@ interface IFormInput {
 
 export default function Search(props: SearchProps) {
 
-    let { register, handleSubmit } = useForm<IFormInput>();
+    let { register } = useForm<IFormInput>();
 
     const [searchTerm, setSearchTerm] = React.useState("");
-    const [searchResults, setSearchResults] = React.useState<Plant[]>([]);
     const handleChange = (e: any) => {
         setSearchTerm(e.target.value)
     }
@@ -28,7 +27,7 @@ export default function Search(props: SearchProps) {
         if (searchTerm === '') {
             props.onResults(props.plants);
         }
-        if (props.plants) {
+        if (oldList) {
             const results: Plant[] = oldList.filter(plant =>
                 plant.plantName.toLowerCase().includes(searchTerm)
             );
@@ -47,8 +46,5 @@ export default function Search(props: SearchProps) {
                 onChange={handleChange}
             />
         </div>
-
-
-
     );
 }

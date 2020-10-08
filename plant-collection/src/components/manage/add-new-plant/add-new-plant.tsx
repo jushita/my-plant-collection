@@ -3,7 +3,8 @@ import { useForm } from 'react-hook-form';
 import './add-new-plant.css';
 import { Typography } from '@material-ui/core';
 import { Plant } from '../../../models/Plant';
-import { addPlant } from '../../../services/plant';
+import { addPlant, addPlantImage } from '../../../services/plant';
+import { stringify } from 'querystring';
 
 interface IFormInput {
     plantName: string;
@@ -18,16 +19,25 @@ export default function AddNewPlant() {
 
     const onSubmit = (data: IFormInput) => {
         let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.plantResource[0].name, data.plantStatus);
-        addPlant(plant).then((data) => {
-            reset(new Plant('', '', '', '', ''));
-        })
-        setMessage(`Plant Added to Inventory!`)
-        setTimeout(() => setMessage(``), 2000);
+        const formData = new FormData();
+        formData.append('plantResource', data.plantResource[0]);
+        // formData.append('plant', JSON.stringify(plant));
+        addPlantImage(formData).then(() => {
+            addPlant(plant).then(() => {
+                reset(new Plant('', '', '', '', ''));
+                setMessage(`Plant Added to Inventory!`);
+                setTimeout(() => setMessage(``), 2000);
+                console.log(`Plant added successfully`)
+            }).catch((e) => {
+                console.log(e)
+            });
+
+        }).catch((e) => {
+            console.log(e)
+        });
     }
 
-
     return (
-
         <div className="form-box">
             <div className="form-content">
                 <Typography gutterBottom variant="h6" component="h4" className="form-header">Add new Plant</Typography>
@@ -42,9 +52,13 @@ export default function AddNewPlant() {
                         <textarea name="plantDescription" ref={register({ required: true })} className="form-input" />
                         <div className="error-message">{errors.plantDescription && "Your input is required"}</div>
                     </div>
-                    <div className="form-item">
+                    <div className="form-item ">
                         <label>Plant Resource</label>
-                        <input ref={register({ required: true })} className="form-input" type="file" name="plantResource" />
+                        <input ref={register({ required: true })}
+                            className="form-input"
+                            type="file"
+                            name="plantResource"
+                        />
                         <div className="error-message">{errors.plantResource && "Your input is required"}</div>
                     </div>
                     <div className="form-item">
