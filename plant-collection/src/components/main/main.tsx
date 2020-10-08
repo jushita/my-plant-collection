@@ -44,8 +44,10 @@ export default function Main() {
     setSearchResults(plants);
   }
 
-  const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
-  const asset_url = url;
+  // const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
+  // const asset_url = url;
+  const asset_url = 'https://d1bot71ci7wa6y.cloudfront.net/';
+
   return (
     <AppBar position="relative" className="main-container">
       <div className="search-nav">
@@ -63,7 +65,7 @@ export default function Main() {
                 <CardMedia
                   component="img"
                   className={classes.cardMedia}
-                  image={`${asset_url}/${plant.plantResource}.png`}
+                  image={`${asset_url}${plant.plantResource}`}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>

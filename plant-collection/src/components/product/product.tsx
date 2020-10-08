@@ -21,8 +21,10 @@ export default function Product() {
 
         return <div>Loading...</div>
     }
-    const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
-    const asset_url = url + '/' + plant.plantResource + '.png'
+    // const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
+    // const asset_url = url + '/' + plant.plantResource + '.png'
+    const asset_url = 'https://d1bot71ci7wa6y.cloudfront.net/' + plant.plantResource;
+    console.log(asset_url)
     return (
         <AppBar position="relative" className="main-container">
             <Container className={classes.cardGrid} maxWidth="md">
