@@ -1,23 +1,24 @@
 import axios from 'axios';
 import { Plant } from '../models/Plant';
 
-
+// const API = 'https://api.plantinventory.com';
+const API = 'http://localhost:3000'
 export function getPlants(): Promise<Plant[]> {
-    return axios.get('http://localhost:3000/plants')
+    return axios.get(`${API}/plants`)
         .then(response => {
             return response.data as Plant[];
         });
 }
 
 export function getPlantById(id: string): Promise<Plant> {
-    return axios.get(`http://localhost:3000/plants/${id}`)
+    return axios.get(`${API}/plants/${id}`)
         .then(response => {
             return response.data as Plant;
         });
 }
 
 export function addPlant(plant: Plant): Promise<Plant> {
-    return axios.post(`http://localhost:3000/plants`, plant)
+    return axios.post(`${API}/plants`, plant)
         .then(response => {
             return response.data as Plant;
         });
@@ -25,14 +26,14 @@ export function addPlant(plant: Plant): Promise<Plant> {
 
 
 export function removePlant(id: string): Promise<string> {
-    return axios.delete(`http://localhost:3000/plants/${id}`)
+    return axios.delete(`${API}/plants/${id}`)
         .then(response => {
             return response.data as string;
         })
 }
 
 export function updatePlant(plant: Plant): Promise<Plant> {
-    return axios.put(`http://localhost:3000/plants/${plant.id}`, plant)
+    return axios.put(`${API}/${plant.id}`, plant)
         .then(response => {
             console.log(response)
             return response.data as Plant;
@@ -40,8 +41,7 @@ export function updatePlant(plant: Plant): Promise<Plant> {
 }
 
 export function addPlantImage(photo: FormData) {
-    console.log(`getting here??`)
-    return axios.post(`http://localhost:3000/plants/upload`, photo)
+    return axios.post(`${API}/plants/upload`, photo)
         .then(response => {
             return response.data as Plant;
         });

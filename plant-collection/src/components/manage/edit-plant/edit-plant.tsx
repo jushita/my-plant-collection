@@ -48,7 +48,7 @@ export default function EditPlant() {
                 {searchResults.map((plant, i) => (
                     <div key={plant.id} className="plant-item">
                         <div className="plant-item-name">
-                            {plant.plantName}
+                            {plant.name}
                         </div>
                         <div className="plant-button" >
                             <EditModal plant={plant} onClose={(plant?: Plant) => handleChange(i, plant)}></EditModal>

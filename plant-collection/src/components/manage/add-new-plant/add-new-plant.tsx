@@ -4,13 +4,12 @@ import './add-new-plant.css';
 import { Typography } from '@material-ui/core';
 import { Plant } from '../../../models/Plant';
 import { addPlant, addPlantImage } from '../../../services/plant';
-import { stringify } from 'querystring';
 
 interface IFormInput {
     plantName: string;
     plantStatus: string;
     plantDescription: string;
-    plantResource: any;
+    PlantResource: FileList;
 }
 
 export default function AddNewPlant() {
@@ -18,9 +17,10 @@ export default function AddNewPlant() {
     let [message, setMessage] = useState('');
 
     const onSubmit = (data: IFormInput) => {
-        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.plantResource[0].name, data.plantStatus);
+        console.log(data)
+        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.PlantResource, data.plantStatus);
         const formData = new FormData();
-        formData.append('plantResource', data.plantResource[0]);
+        formData.append('plantResource', data.PlantResource));
         // formData.append('plant', JSON.stringify(plant));
         addPlantImage(formData).then(() => {
             addPlant(plant).then(() => {
@@ -59,7 +59,7 @@ export default function AddNewPlant() {
                             type="file"
                             name="plantResource"
                         />
-                        <div className="error-message">{errors.plantResource && "Your input is required"}</div>
+                        <div className="error-message">{errors.PlantResource && "Your input is required"}</div>
                     </div>
                     <div className="form-item">
                         <label>Status</label>

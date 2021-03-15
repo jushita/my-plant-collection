@@ -44,7 +44,7 @@ export default function RemovePlant() {
                 {searchResults.map(plant => (
                     <div key={plant.id} className="plant-item">
                         <div className="plant-item-name">
-                            {plant.plantName}
+                            {plant.name}
                         </div>
                         <div className="plant-button">
                             <button className="custom-button" onClick={() => onRemove(plant.id)}>

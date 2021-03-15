@@ -65,12 +65,12 @@ export default function Main() {
                 <CardMedia
                   component="img"
                   className={classes.cardMedia}
-                  image={`${asset_url}${plant.plantResource}`}
+                  image={`${asset_url}${plant.PlantResource}`}
                   title="Image title"
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2" className="card-title">
-                    {plant.plantName}
+                    {plant.name}
                   </Typography>
                 </CardContent>
                 <CardActions>

@@ -16,14 +16,15 @@ export default function Product() {
     const [plant, setPlant] = React.useState<Plant | undefined>(undefined);
     if (plant === undefined) {
         getPlantById(id).then(data => {
+            console.log(data)
             setPlant(data);
         });
 
         return <div>Loading...</div>
     }
     // const url = process.env.NODE_ENV === 'production' ? 'https://plants-jushita.s3-us-west-2.amazonaws.com' : '';
-    // const asset_url = url + '/' + plant.plantResource + '.png'
-    const asset_url = 'https://d1bot71ci7wa6y.cloudfront.net/' + plant.plantResource;
+    // const asset_url = url + '/' + plant.PlantResource + '.png'
+    const asset_url = 'https://d1bot71ci7wa6y.cloudfront.net/' + plant.PlantResource;
     console.log(asset_url)
     return (
         <AppBar position="relative" className="main-container">
@@ -34,12 +35,12 @@ export default function Product() {
                             <CardMedia
                                 component="img"
                                 image={`${asset_url}`}
-                                title={plant.plantName}
+                                title={plant.name}
                             />
                         </Card>
                         <Card className={classes.productBody}>
                             <Typography gutterBottom variant="h5" component="h2" className="card-title">
-                                {plant.plantName}
+                                {plant.name}
                             </Typography>
                             <Typography gutterBottom component="p" className="card-title">
                                 Plant Status: {plant.plantStatus}

@@ -28,8 +28,8 @@ export default function Search(props: SearchProps) {
             props.onResults(props.plants);
         }
         if (oldList) {
-            const results: Plant[] = oldList.filter(plant =>
-                plant.plantName.toLowerCase().includes(searchTerm)
+            const results: Plant[] = oldList.filter((plant: Plant) =>
+                plant.name.toLowerCase().includes(searchTerm)
             );
             props.onResults(results);
         }
