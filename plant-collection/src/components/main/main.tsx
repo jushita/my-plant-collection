@@ -60,7 +60,7 @@ export default function Main() {
       <Container className={classes.cardGrid} maxWidth="md">
         <Grid container spacing={4}>
           {searchResults.map(plant => (
-            <Grid item key={plant.id} xs={12} sm={10} md={4}>
+            <Grid item key={plant.PlantId} xs={12} sm={10} md={4}>
               <Card>
                 <CardMedia
                   component="img"
@@ -70,12 +70,12 @@ export default function Main() {
                 />
                 <CardContent className={classes.cardContent}>
                   <Typography gutterBottom variant="h5" component="h2" className="card-title">
-                    {plant.name}
+                    {plant.PlantName}
                   </Typography>
                 </CardContent>
                 <CardActions>
                   <Button size="small" color="primary" >
-                    <Link to={`/product/${plant.id}`} className="details-button">Details</Link>
+                    <Link to={`/product/${plant.PlantId}`} className="details-button">Details</Link>
                   </Button>
                 </CardActions>
               </Card>

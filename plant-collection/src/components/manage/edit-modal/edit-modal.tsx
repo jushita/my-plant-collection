@@ -14,9 +14,9 @@ interface EditModalProps {
 
 export default function EditModal(props: EditModalProps) {
     const classes = useStyles();
-    const [description, setDescription] = useState(props.plant.plantDescription);
-    const [name, setName] = useState(props.plant.name);
-    const [status, setStaus] = useState(props.plant.plantStatus);
+    const [description, setDescription] = useState(props.plant.PlantDescription);
+    const [name, setName] = useState(props.plant.PlantName);
+    const [status, setStaus] = useState(props.plant.PlantStatus);
     const [resource, setResource] = useState(props.plant.PlantResource)
     const [message, setMessage] = useState("");
 
@@ -46,7 +46,7 @@ export default function EditModal(props: EditModalProps) {
 
     const body = (
         <div style={modalStyle} className={classes.paper}>
-            <h2 className="modal-title">Edit {props.plant.name}</h2>
+            <h2 className="modal-title">Edit {props.plant.PlantName}</h2>
             <hr />
             <div id="modal-description">
                 <div className="input-area">
@@ -60,7 +60,7 @@ export default function EditModal(props: EditModalProps) {
                             <input
                                 name="name"
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                                placeholder={props.plant.name}
+                                placeholder={props.plant.PlantName}
                                 value={name}
                                 onChange={e => setName(e.target.value)}
                             />
@@ -80,7 +80,7 @@ export default function EditModal(props: EditModalProps) {
                             <input
                                 name="status"
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                                placeholder={props.plant.plantStatus}
+                                placeholder={props.plant.PlantStatus}
                                 value={status}
                                 onChange={e => setStaus(e.target.value)}
                             />
@@ -100,7 +100,7 @@ export default function EditModal(props: EditModalProps) {
                             <textarea
                                 name="description"
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline border-blue-300"
-                                placeholder={props.plant.plantDescription}
+                                placeholder={props.plant.PlantDescription}
                                 value={description}
                                 onChange={e => setDescription(e.target.value)}
                             />
@@ -136,7 +136,8 @@ export default function EditModal(props: EditModalProps) {
     );
 
     function update() {
-        let plant = new Plant(props.plant.id, name, description, resource, status);
+        console.log(props.plant)
+        let plant = new Plant(props.plant.PlantId, name, description, resource, status);
         setMessage(`Plant info submitted to be updated!!!`);
         updatePlant(plant).then(plant => {
             setTimeout(() => {

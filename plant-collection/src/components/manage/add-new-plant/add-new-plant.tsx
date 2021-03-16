@@ -6,10 +6,10 @@ import { Plant } from '../../../models/Plant';
 import { addPlant, addPlantImage } from '../../../services/plant';
 
 interface IFormInput {
-    plantName: string;
-    plantStatus: string;
-    plantDescription: string;
-    PlantResource: FileList;
+    PlantName: string;
+    PlantStatus: string;
+    PlantDescription: string;
+    PlantResource: any;
 }
 
 export default function AddNewPlant() {
@@ -18,10 +18,10 @@ export default function AddNewPlant() {
 
     const onSubmit = (data: IFormInput) => {
         console.log(data)
-        let plant: Plant = new Plant('', data.plantName, data.plantDescription, data.PlantResource, data.plantStatus);
+        let plant: Plant = new Plant('', data.PlantName, data.PlantDescription, data.PlantResource[0].name, data.PlantStatus);
         const formData = new FormData();
-        formData.append('plantResource', data.PlantResource));
-        // formData.append('plant', JSON.stringify(plant));
+        formData.append('plantResource', data.PlantResource[0]);
+        formData.append('plantName', plant.PlantName);
         addPlantImage(formData).then(() => {
             addPlant(plant).then(() => {
                 reset(new Plant('', '', '', '', ''));
@@ -44,31 +44,31 @@ export default function AddNewPlant() {
                 <form onSubmit={handleSubmit(onSubmit)}>
                     <div className="form-item">
                         <label>Plant Name</label>
-                        <input name="plantName" ref={register({ required: true })} className="form-input" />
-                        <div className="error-message">{errors.plantName && "Your input is required"}</div>
+                        <input name="PlantName" ref={register({ required: true })} className="form-input" />
+                        <div className="error-message">{errors.PlantName && "Your input is required"}</div>
                     </div>
                     <div className="form-item">
                         <label>Description</label>
-                        <textarea name="plantDescription" ref={register({ required: true })} className="form-input" />
-                        <div className="error-message">{errors.plantDescription && "Your input is required"}</div>
+                        <textarea name="PlantDescription" ref={register({ required: true })} className="form-input" />
+                        <div className="error-message">{errors.PlantDescription && "Your input is required"}</div>
                     </div>
                     <div className="form-item ">
                         <label>Plant Resource</label>
                         <input ref={register({ required: true })}
                             className="form-input"
                             type="file"
-                            name="plantResource"
+                            name="PlantResource"
                         />
                         <div className="error-message">{errors.PlantResource && "Your input is required"}</div>
                     </div>
                     <div className="form-item">
                         <label>Status</label>
-                        <select name="plantStatus" ref={register({ required: true })} className="form-select">
+                        <select name="PlantStatus" ref={register({ required: true })} className="form-select">
                             <option value="Healthy">Healthy</option>
                             <option value="Unhealthy">Unhealthy</option>
                             <option value="Deceased">Deceased</option>
                         </select>
-                        <div className="error-message">{errors.plantStatus && "Your input is required"}</div>
+                        <div className="error-message">{errors.PlantStatus && "Your input is required"}</div>
                     </div>
                     <div className="form-item">
                         <button className="custom-button" type="submit">Submit</button>

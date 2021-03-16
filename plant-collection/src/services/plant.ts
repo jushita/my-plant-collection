@@ -33,7 +33,7 @@ export function removePlant(id: string): Promise<string> {
 }
 
 export function updatePlant(plant: Plant): Promise<Plant> {
-    return axios.put(`${API}/${plant.id}`, plant)
+    return axios.put(`${API}/plants/${plant.PlantId}`, plant)
         .then(response => {
             console.log(response)
             return response.data as Plant;
@@ -41,8 +41,5 @@ export function updatePlant(plant: Plant): Promise<Plant> {
 }
 
 export function addPlantImage(photo: FormData) {
-    return axios.post(`${API}/plants/upload`, photo)
-        .then(response => {
-            return response.data as Plant;
-        });
+    return axios.post(`${API}/plants/upload`, photo);
 }

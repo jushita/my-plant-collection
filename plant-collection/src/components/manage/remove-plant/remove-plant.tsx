@@ -20,7 +20,7 @@ export default function RemovePlant() {
     }
 
     const onRemove = (id: string) => {
-        const newPlantList = plants.filter((item) => item.id !== id);
+        const newPlantList = plants.filter((item) => item.PlantId !== id);
         removePlant(id);
         setPlants(newPlantList);
         setSearchResults(newPlantList);
@@ -42,12 +42,12 @@ export default function RemovePlant() {
 
             <div className="plant-box-container">
                 {searchResults.map(plant => (
-                    <div key={plant.id} className="plant-item">
+                    <div key={plant.PlantId} className="plant-item">
                         <div className="plant-item-name">
-                            {plant.name}
+                            {plant.PlantName}
                         </div>
                         <div className="plant-button">
-                            <button className="custom-button" onClick={() => onRemove(plant.id)}>
+                            <button className="custom-button" onClick={() => onRemove(plant.PlantId)}>
                                 REMOVE
                         </button>
                         </div>

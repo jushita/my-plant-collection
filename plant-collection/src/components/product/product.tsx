@@ -30,23 +30,23 @@ export default function Product() {
         <AppBar position="relative" className="main-container">
             <Container className={classes.cardGrid} maxWidth="md">
                 <Grid container spacing={1} className="grid-container">
-                    <Grid item key={plant.id} md={8}>
+                    <Grid item key={plant.PlantId} md={8}>
                         <Card>
                             <CardMedia
                                 component="img"
                                 image={`${asset_url}`}
-                                title={plant.name}
+                                title={plant.PlantName}
                             />
                         </Card>
                         <Card className={classes.productBody}>
                             <Typography gutterBottom variant="h5" component="h2" className="card-title">
-                                {plant.name}
+                                {plant.PlantName}
                             </Typography>
                             <Typography gutterBottom component="p" className="card-title">
-                                Plant Status: {plant.plantStatus}
+                                Plant Status: {plant.PlantStatus}
                             </Typography>
                             <Typography gutterBottom component="p" className="card-title">
-                                {plant.plantDescription}
+                                {plant.PlantDescription}
                             </Typography>
                         </Card>
                     </Grid>
